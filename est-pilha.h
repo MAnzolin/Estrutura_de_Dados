@@ -1,4 +1,6 @@
-typedef int Itemp;
+
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct pilha {
    int    max;
