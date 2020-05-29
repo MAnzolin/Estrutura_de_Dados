@@ -9,7 +9,7 @@ int main(void){
   printf("Digite um numero e tecle 'enter'\nDigite '0' para terminar,vc pode inserir ate 10 numeros");
   while(x != 0){
     printf("Numero: ");
-    gets(x);
+    scanf("%d",&x);
     empilha(x,A);
   }
 
