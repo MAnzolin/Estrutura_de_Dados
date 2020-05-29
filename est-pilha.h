@@ -1,6 +1,8 @@
+// pilha.h - implementacao dinamica sequencial de pilha
 
-#include <stdio.h>
 #include <stdlib.h>
+
+typedef int Itemp;
 
 typedef struct pilha {
    int    max;
@@ -49,3 +51,4 @@ void destroip(Pilha *Q) {
    free(*Q);
    *Q = NULL;
 }
+
