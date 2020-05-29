@@ -1,5 +1,5 @@
 // pilha.h - implementacao dinamica sequencial de pilha
-
+#include <stdio.h>
 #include <stdlib.h>
 
 typedef int Itemp;
