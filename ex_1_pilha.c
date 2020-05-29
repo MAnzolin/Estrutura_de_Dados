@@ -3,6 +3,9 @@
 #include "est-pilha.h"
 
 int main(void) {
+  //cria uma var do tipo char de tamanho 81
+  //cria uma pilha P com o tamanho máximo de 81
+  
    char  c[81];
    Pilha P = pilha(81);
    printf("Cadeia? ");
