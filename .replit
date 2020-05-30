@@ -1,0 +1,2 @@
+language = "bash"
+run = "pilha/ex_1_pilha.c"
