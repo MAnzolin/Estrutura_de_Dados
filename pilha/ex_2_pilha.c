@@ -1,32 +1,33 @@
-int main (void)
-{
-  Pilha A = pilha (10);
-  Pilha B = pilha (10);
-  int x, i = 0;
+/**
+ * Usando pilha, crie uma função para verificar se uma expressão composta apenas
+ * por chaves, colchetes e parênteses, representada por uma cadeia, está ou não
+ * balanceada. Por exemplo, as expressões "[{()()}{}]" e "{[([{}])]}"
+ * estão balanceadas, mas as expressões " {[(}])" e " {[)()(]}" não estão.
+ */
 
-  printf("Digite um numero e tecle 'enter'\nDigite '0' para terminar,vc pode inserir ate 10 numeros\n");
-  for (int j = 0; j < 10; j++) {
-      printf ("Numero: ");
-      scanf ("%d", &x);
-      empilha (x, A);
-    }
-    printf("\n----------------------------------------------------\n\n");
-  
-  while ( (A->item[(A->topo) - i]) ){
-      if ((A->item[A->topo]) > (A->item[(A->topo) - 1]))
-	{
-	  printf ("Compara %d e %d e depois empilha em B ",(A->item[A->topo]),(A->item[(A->topo) - 1]));
-	  printf ("e depois empilha %d em B \n",(A->item[A->topo]));
-	  empilha (desempilha (A), B);
-	}
-      else{
-	  i++;
-	  printf ("Incrementou i\n");
-	  }
-    }
-  while (!vaziap (B)){
-      printf ("Pilha B: %d \n", desempilha (B));
-    }
+#include <stdio.h>
+#include <stdlib.h>
+#include "pilha.h"
 
+int main(void){
+  int n, x;
+  Pilha A = pilha(256);
+  Pilha B = pilha (256);
+  printf("Informe o tamanho da lista: ");
+  scanf("%d", &n);
+  for (int i = 0; i < n; i++) {
+    printf("Informe o %do. item da lista: ", i+1);
+    scanf("%d", &x);
+    if(vaziap(A)) empilha(x, A);
+    else if(A->item[A->topo] > x) empilha(x, A);
+    else {
+      while (A->item[A->topo] < x && !vaziap(A)) empilha(desempilha(A), B);
+      empilha(x, A);
+      while (!vaziap(B)) empilha(desempilha(B), A);
+    }
+  };
+  while (!vaziap(A)) printf("%d ", desempilha(A));
+  destroip(&A);
+  destroip(&B);
   return 0;
 }
