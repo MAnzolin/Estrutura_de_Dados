@@ -53,18 +53,21 @@ Itemp desempilha(Pilha P) {
 
 void converta(char str[50]){
     Pilha p;
+    char valores[50];
+    int count = 0;
     for(int i = 0; str[i]; i++){
-       switch(str[i]){
-            case("(" || " "): break;
-            case(')'): 
-                desempilha(p);
-                break;
-            default: 
-                empilha(str[i], p);
-       }
+      if(!(str[i] == '(' || str[i] == ' ')){
+        if( str[i] == ')') {valores[count] = desempilha(p); count++;}
+        else if( str[i] == '+' || str[i] == '-'|| str[i] == '*' || str[i] == '/')empilha(str[i], p);
+        else {
+            valores[count] = str[i];
+            count++;}
+      }
     }
-
-    return;
+    puts("Nova exp:");
+    for(int j = 0;j <= count; j++){
+       printf("%c",valores[j]);}
+   return;
 }
 
 int main(void){
