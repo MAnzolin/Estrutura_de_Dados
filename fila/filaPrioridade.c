@@ -18,10 +18,10 @@ void exibe(Fila *f){
 	}
 	else printf("FILA VAZIA\n");
 }
-void troca(Fila *f, int n, int j){
-    int aux_troca = f->s[n];
-    f->s[n] = f->s[j];
-    f->s[j] = aux_troca;
+void troca(Fila *f, int pai, int filho){
+    int aux_troca = f->s[pai];
+    f->s[pai] = f->s[filho];
+    f->s[filho] = aux_troca;
 }
 void fixup(Fila *f){
     int aux = f->fim;
@@ -46,16 +46,16 @@ void fixdown(Fila *f){
     int elemento = 1;
     int f_esq = 2;
     int f_dir = 3;
-	if(f->fim > 2)
+	if(f->fim > 2) //tem um filho na direita?
 		while(f->fim > f_esq){
-	        if (f->s[f_esq] > f->s[f_dir]){
-	        	if (f->s[f_esq]>f->s[elemento]) {
+	        if (f->s[f_esq] > f->s[f_dir]){//O filho da esquerda é maior que o da direita?
+	        	if (f->s[f_esq]>f->s[elemento]) {//O filho da esquerda é maior que o pai?
 	                troca(f,f_esq,elemento);
 	                elemento = f_esq;
 	            }
 			}
-	       	else if(f->s[f_dir] > f->s[f_esq]){    
-				if (f->s[f_dir] > f->s[elemento]) {
+	       	else if(f->s[f_dir] > f->s[f_esq]){  
+				if (f->s[f_dir] > f->s[elemento]) {   //O filho da direita é maior que o pai?
 	                troca(f,f_dir,elemento);
 	                elemento = f_dir;
 	            }
