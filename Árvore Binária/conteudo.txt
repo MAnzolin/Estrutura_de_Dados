@@ -1,0 +1,51 @@
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Conceitos \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+                                            A
+                                            |
+                                        _____________
+                                        |   |   |   |
+                                        B   C   D   E
+                                        |        |    \
+                                      _____   _____    \
+                                      |   |   |   |    |
+                                      F   G   H   I    J
+
+
+ Nível: cada geração... essa árvore tem 4 níveis
+ Raíz: início de uma árvore {A}
+ Folha: último nível de um árvore {K}
+ Nó: algum item {A,B,C,D,E,...K}
+ Altura: é a distância entre um nó e uma folha
+    - Regra: sempre percorre a árvore pela raíz até a folha
+    - A altura de uma folha é 0
+    - A altura de B seria 1 e a altura de A seria 2
+Profundidade: distância do Nó até a raiz
+    - exemplo: a pronfundidade de B é igual a 1 e de F é igual a 2
+
+
+
+                                ******** Árvore NÃO balanceada ********
+
+- obs: a árvore do primeiro exemplo está balanceada
+
+Essa seria uma árvore NÃO balanceada:
+                                                A
+                                                |
+                                            _____________
+                                            |   |   |   |
+                                            B   C   D   E
+                                            |       |    \
+                                           _____   _____   \
+                                           |   |   |   |    |
+                                           F   G   H   I    J
+                                                            |
+                                                            K
+
+Veja que temos duas alturas para chegarmos em uma folha, isto torna ela não balanceada.
+Podemos ir de A -> F e obtemos a altura 2
+Mas se formos de A -> K obtemos a altura 3
+
+
+                                ******** Árvore Binária ********
+ 
+ - árvores que tenham até dois nós descendentes
