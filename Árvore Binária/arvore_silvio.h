@@ -30,6 +30,11 @@ void exibe(Arv A,int n) {
    exibe(A->esq,n+1);
 }
 
+Arv completa(int h) {
+   if( h==0 ) return NULL;
+   return arv(completa(h-1), rand()%100, completa(h-1));
+}
+
 /* EX. 3
 
 #include <stdio.h>
